@@ -9,6 +9,7 @@ import {AddressEntry} from '../address-entry';
 export class AddressViewComponent implements OnInit {
   @Input() address!: AddressEntry;
   @Output() fireDelete: EventEmitter<AddressEntry> = new EventEmitter();
+  @Output() fireSave: EventEmitter<AddressEntry> = new EventEmitter();
   edit: boolean | undefined;
 
   constructor() { }
@@ -23,5 +24,9 @@ export class AddressViewComponent implements OnInit {
 
   delete(): void {
     this.fireDelete.emit(this.address);
+  }
+
+  save(): void {
+    this.fireSave.emit(this.address);
   }
 }
