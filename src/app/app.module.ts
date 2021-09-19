@@ -8,6 +8,9 @@ import { AddressListComponent } from './address-list/address-list.component';
 import { AddressListElementComponent } from './address-list/address-list-element/address-list-element.component';
 import { AddressViewComponent } from './address-list/address-view/address-view.component';
 import {FormsModule} from "@angular/forms";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import {FormsModule} from "@angular/forms";
     imports: [
         BrowserModule,
         NgbModule,
-        FormsModule
+        FormsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule
     ],
   providers: [],
   bootstrap: [AppComponent]
