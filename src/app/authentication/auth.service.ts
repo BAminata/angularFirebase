@@ -17,10 +17,6 @@ export class AuthService {
     return this.afAuth.user;
   }
 
-  get isLoggedIn(): boolean {
-    return this.loggedUser !== null;
-  }
-
   get userid(): string {
     if (this.loggedUser) return this.loggedUser.uid;
     return '';
