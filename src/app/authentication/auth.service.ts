@@ -14,7 +14,7 @@ export class AuthService {
   ) { }
 
   get user(): Observable<firebase.User | null> {
-    // return this.afAuth.user;
+    return this.afAuth.user;
   }
 
   get userid(): string {
