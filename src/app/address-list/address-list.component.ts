@@ -28,8 +28,8 @@ export class AddressListComponent implements OnInit {
     this.store.getAddresses().subscribe(data => {
       this.addresses = data.map(e => {
         return {
-          id: e.payload.doc.id,
-          ...(e.payload.doc.data() as object)
+          id: e.id,
+          ...e
         } as AddressEntry;
       });
     });

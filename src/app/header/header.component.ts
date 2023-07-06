@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {AuthService} from '../authentication/auth.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import firebase from "firebase/compat/app";
+import {User} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-header',
@@ -15,8 +15,8 @@ export class HeaderComponent {
     private router: Router
   ) { }
 
-  get user(): Observable<firebase.User | null> {
-    return this.authService.user;
+  get user(): Observable<User | null> {
+    return this.authService.user$;
   }
 
   signOut(): void {

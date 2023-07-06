@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AbstractControl, FormBuilder, ValidationErrors, Validators} from "@angular/forms";
+import {AbstractControl, UntypedFormBuilder, ValidationErrors, Validators} from "@angular/forms";
 import {AuthService} from "../authentication/auth.service";
 import {Router} from "@angular/router";
 
@@ -31,7 +31,7 @@ export class SignUpComponent  {
   get pwGroup(): AbstractControl {return <AbstractControl>this.signupForm.get('pwGroup'); }
 
   constructor(
-    private builder: FormBuilder,
+    private builder: UntypedFormBuilder,
     private authService: AuthService,
     private router: Router
   ) { }
