@@ -5,9 +5,8 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signInWithEmailAndPassword, signInWithPopup, signOut,
-  GoogleAuthProvider
+  GoogleAuthProvider, updateProfile
 } from "@angular/fire/auth";
-// import firebase from "firebase/compat/app";
 
 @Injectable({
   providedIn: 'root'
@@ -18,19 +17,12 @@ export class AuthService {
   user$ = user(this.afAuth);
   userSubscription: Subscription;
 
-  constructor(
-  ) {
+  constructor() {
     this.userSubscription = this.user$.subscribe((aUser: User | null) => {
       this.loggedUser = aUser;
     });
   }
 
- /* get user(): Observable<User | null> {
-    // @ts-ignore
-    return this.afAuth.user;
-  }
-
-  */
 
   get userid(): string {
     if (this.loggedUser) return this.loggedUser.uid;
@@ -50,7 +42,7 @@ export class AuthService {
         const user = credential.user;
         this.loggedUser = credential.user; // shouldn't be null...
         if (user) {
-          // user.updateProfile({displayName: name}).then(_ => {});
+          updateProfile(user, {displayName: name}).then(_ => {});
         }
       });
   }
