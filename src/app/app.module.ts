@@ -8,9 +8,7 @@ import { AddressListComponent } from './address-list/address-list.component';
 import { AddressListElementComponent } from './address-list/address-list-element/address-list-element.component';
 import { AddressViewComponent } from './address-list/address-view/address-view.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-// import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
-// import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AppRoutingModule} from "./app-routing.module";
 import {RouterModule} from "@angular/router";
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -35,8 +33,6 @@ import {getAuth, provideAuth} from "@angular/fire/auth";
         BrowserModule,
         NgbModule,
         FormsModule,
-        // AngularFireModule.initializeApp(environment.firebase),
-        // AngularFirestoreModule,
         provideFirebaseApp(() => initializeApp(environment.firebase)),
         provideFirestore(() => getFirestore()),
         provideAuth(() => getAuth()),
